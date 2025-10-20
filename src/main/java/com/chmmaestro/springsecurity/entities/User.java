@@ -1,13 +1,16 @@
 package com.chmmaestro.springsecurity.entities;
 
 
+import com.chmmaestro.springsecurity.controller.dto.LoginRequest;
 import jakarta.persistence.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Set;
 import java.util.UUID;
 
 @Entity
-@Table(name = "atb_users")
+@Table(name = "tb_users")
 public class User {
 
     @Id
@@ -58,5 +61,9 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean isLogginCorrect(LoginRequest loginRequest, PasswordEncoder passwordEncoder) {
+        return passwordEncoder.matches(loginRequest.password(), this.password);
     }
 }

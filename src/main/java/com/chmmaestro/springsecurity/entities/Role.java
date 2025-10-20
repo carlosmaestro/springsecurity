@@ -30,8 +30,8 @@ public class Role {
     }
 
     public enum  Values{
-        BASIC(1L),
-        ADMIN(2L);
+        ADMIN(1L),
+        BASIC(2L);
 
         long roleId;
         Values(long roleId) {

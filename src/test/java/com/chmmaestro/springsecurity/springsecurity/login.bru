@@ -1,0 +1,19 @@
+meta {
+  name: New HTTP Request
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{api_host}}/login
+  body: json
+  auth: none
+}
+
+body:json {
+  
+  {
+    "username":"admin",
+    "password":"123"
+  }
+}
